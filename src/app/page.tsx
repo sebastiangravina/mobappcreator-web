@@ -1,69 +1,301 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Icon } from "@/components/Icon";
+import { PhoneMockup } from "@/components/PhoneMockup";
+import { CtaSection, Faq, Testimonials } from "@/components/sections";
+import { Button, Container, SampleTag, Section } from "@/components/ui";
+import { features, industries, stats, steps } from "@/lib/content";
+import { businessPlans } from "@/lib/pricing";
+import { site } from "@/lib/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* ---------- Hero ---------- */}
+      <section className="relative overflow-hidden pt-32 sm:pt-40">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-[-12%] h-[620px] w-[1100px] -translate-x-1/2 opacity-[0.16] blur-[90px]"
+          style={{
+            background:
+              "radial-gradient(closest-side at 25% 50%, var(--sky), transparent), radial-gradient(closest-side at 50% 40%, var(--magenta), transparent), radial-gradient(closest-side at 75% 55%, var(--orange), transparent), radial-gradient(closest-side at 55% 80%, var(--lime), transparent)",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <Container className="relative text-center">
+          <p className="eyebrow">No-code app builder</p>
+          <h1 className="display mx-auto mt-4 max-w-4xl">
+            Build your app.
+            <br />
+            <span className="brand-gradient-text">No code required.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="lede mx-auto mt-6 max-w-2xl">
+            Create, publish and grow native apps for iPhone, iPad and Android. Made for small businesses,
+            entrepreneurs and the agencies that serve them.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+            <Button href={site.signupUrl} size="lg">
+              Start your free trial
+            </Button>
+            <Button href="#how-it-works" variant="link">
+              See how it works
+            </Button>
+          </div>
+          <p className="mt-4 text-[13px] text-fg-3">{site.trialDays} days free · No credit card · Cancel anytime</p>
+
+          <div className="relative mx-auto mt-16 flex h-[430px] max-w-[760px] items-end justify-center sm:h-[560px]">
+            <div className="absolute bottom-0 left-[4%] hidden origin-bottom -rotate-6 scale-[0.86] opacity-95 sm:block md:left-[10%]">
+              <PhoneMockup variant="push" appName="Pulse Fitness" accent="var(--magenta)" />
+            </div>
+            <div className="absolute bottom-0 right-[4%] hidden origin-bottom rotate-6 scale-[0.86] opacity-95 sm:block md:right-[10%]">
+              <PhoneMockup variant="radio" appName="Radio Sur 98.5" subtitle="Live from Buenos Aires" accent="var(--sky)" />
+            </div>
+            <PhoneMockup className="relative z-10 scale-[0.82] origin-bottom sm:scale-100" />
+          </div>
+        </Container>
+      </section>
+
+      {/* ---------- Platforms ---------- */}
+      <div className="border-y border-line">
+        <Container className="flex flex-col items-center justify-center gap-4 py-7 text-[15px] text-fg-2 sm:flex-row sm:gap-10">
+          <span>Native apps for</span>
+          <span className="flex items-center gap-8 font-medium text-fg">
+            <span className="flex items-center gap-2"><Icon name="phone" size={20} /> iPhone</span>
+            <span className="flex items-center gap-2"><Icon name="tablet" size={20} /> iPad</span>
+            <span className="flex items-center gap-2"><Icon name="android" size={20} /> Android</span>
+          </span>
+        </Container>
+      </div>
+
+      {/* ---------- How it works ---------- */}
+      <Section id="how-it-works">
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <p className="eyebrow">How it works</p>
+            <h2 className="headline mt-3">From idea to the App Store in three steps.</h2>
+          </div>
+          <div className="mt-16 grid gap-5 md:grid-cols-3">
+            {steps.map((s, i) => (
+              <div
+                key={s.title}
+                className="reveal rounded-[28px] bg-bg-alt p-8"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl text-white" style={{ background: s.color }}>
+                    <Icon name={s.icon} size={24} strokeWidth={1.9} />
+                  </span>
+                  <span className="text-[44px] font-bold leading-none text-line">{i + 1}</span>
+                </div>
+                <h3 className="title mt-8">{s.title}</h3>
+                <p className="mt-1 text-[17px] font-medium">{s.lead}</p>
+                <p className="mt-3 text-[16px] leading-relaxed text-fg-2">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ---------- Feature bento ---------- */}
+      <Section alt>
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Features</p>
+            <h2 className="headline mt-3">Everything your app needs. Already built.</h2>
+            <p className="lede mt-5">Pick the modules you want. Add more any time.</p>
+          </div>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+            <div className="reveal flex flex-col overflow-hidden rounded-[28px] bg-card shadow-[var(--shadow)]">
+              <div className="p-8 sm:p-10">
+                <h3 className="title">Push notifications that bring people back.</h3>
+                <p className="mt-3 max-w-md text-[17px] leading-relaxed text-fg-2">
+                  Reach every customer instantly, for free. Schedule campaigns, add images and keep messages in an
+                  in-app inbox.
+                </p>
+              </div>
+              <div className="mt-auto flex h-[300px] justify-center overflow-hidden">
+                <PhoneMockup variant="push" appName="Pulse Fitness" accent="var(--magenta)" className="mt-2 shrink-0" />
+              </div>
+            </div>
+            <div className="reveal flex flex-col overflow-hidden rounded-[28px] bg-card shadow-[var(--shadow)]" style={{ transitionDelay: "100ms" }}>
+              <div className="p-8 sm:p-10">
+                <h3 className="title">Sell, book and stream. Right in the app.</h3>
+                <p className="mt-3 max-w-md text-[17px] leading-relaxed text-fg-2">
+                  Ecommerce, forms and bookings, radio and video streaming, all ready to switch on.
+                </p>
+              </div>
+              <div className="mt-auto flex h-[300px] justify-center overflow-hidden">
+                <PhoneMockup className="mt-2 shrink-0" />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {features.slice(2, 10).map((f, i) => (
+              <div
+                key={f.title}
+                className="reveal rounded-[24px] bg-card p-6 shadow-[var(--shadow)]"
+                style={{ transitionDelay: `${(i % 4) * 70}ms` }}
+              >
+                <span style={{ color: f.color }}>
+                  <Icon name={f.icon} size={28} />
+                </span>
+                <h3 className="mt-4 text-[17px] font-semibold">{f.title}</h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-fg-2">{f.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="reveal mt-10 text-center">
+            <Button href="/features/" variant="link">
+              Explore all features
+            </Button>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ---------- Industries ---------- */}
+      <Section>
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Made for every business</p>
+            <h2 className="headline mt-3">Whatever you do, there’s an app for that. Yours.</h2>
+          </div>
+          <ul className="reveal mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-2.5">
+            {industries.map((name, i) => (
+              <li
+                key={name}
+                className="rounded-full border border-line px-4 py-2 text-[15px] text-fg-2"
+                style={i === industries.length - 1 ? { borderColor: "var(--fg)", color: "var(--fg)", fontWeight: 600 } : undefined}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+          <div className="reveal mt-10 text-center">
+            <Button href="/showcase/" variant="link">
+              See apps made with MobAppCreator
+            </Button>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ---------- Stats ---------- */}
+      <section className="border-y border-line">
+        <Container className="grid grid-cols-2 gap-y-10 py-16 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <div key={s.label} className="reveal text-center" style={{ transitionDelay: `${i * 80}ms` }}>
+              <p className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight">{s.value}</p>
+              <p className="mt-1 text-[15px] text-fg-2">{s.label}</p>
+            </div>
+          ))}
+          <p className="col-span-2 text-center md:col-span-4">
+            <SampleTag />
+          </p>
+        </Container>
+      </section>
+
+      {/* ---------- Agencies ---------- */}
+      <Section>
+        <Container>
+          <div className="reveal grid overflow-hidden rounded-[32px] bg-[#0f1615] text-white lg:grid-cols-[1.15fr_1fr]">
+            <div className="p-8 sm:p-14">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-white/55">For agencies</p>
+              <h2 className="headline mt-3">Sell apps to your clients. Under your brand.</h2>
+              <p className="mt-5 text-[18px] leading-relaxed text-white/70">
+                Add mobile apps to your services without hiring developers. Your logo, your domain, your prices.
+              </p>
+              <ul className="mt-8 space-y-3 text-[16px]">
+                {[
+                  "White label dashboard and frontend",
+                  "Custom domain and SSL",
+                  "Bill clients with your own Stripe account",
+                  "Onboarding and technical training included",
+                ].map((t) => (
+                  <li key={t} className="flex items-center gap-3">
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/10 text-lime">
+                      <Icon name="check" size={14} strokeWidth={2.6} />
+                    </span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10 flex flex-wrap items-center gap-5">
+                <Link
+                  href="/pricing/?plan=agency"
+                  className="inline-flex h-12 items-center rounded-full bg-white px-7 text-[17px] font-medium text-black transition hover:opacity-85"
+                >
+                  See agency plans
+                </Link>
+                <span className="text-[15px] text-white/60">From USD 199/mo</span>
+              </div>
+            </div>
+            <div className="relative hidden min-h-[420px] items-center justify-center lg:flex">
+              <div aria-hidden className="absolute inset-0 grid grid-cols-2 gap-px opacity-[0.12]">
+                <span className="bg-sky" />
+                <span className="bg-magenta" />
+                <span className="bg-lime" />
+                <span className="bg-orange" />
+              </div>
+              <div className="relative grid grid-cols-2 gap-4 p-10">
+                {[
+                  ["Client: La Parrilla", "var(--orange)", "Live"],
+                  ["Client: Pulse Fitness", "var(--magenta)", "Live"],
+                  ["Client: Costa Azul", "var(--sky)", "In review"],
+                  ["Client: Green Valley", "var(--lime)", "Draft"],
+                ].map(([name, color, status]) => (
+                  <div key={name} className="w-[170px] rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10 backdrop-blur">
+                    <span className="block h-10 w-10 rounded-xl" style={{ background: color }} />
+                    <p className="mt-4 text-[13px] font-semibold">{name.replace("Client: ", "")}</p>
+                    <p className="mt-0.5 text-[12px] text-white/55">{status}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Testimonials />
+
+      {/* ---------- Pricing teaser ---------- */}
+      <Section>
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Pricing</p>
+            <h2 className="headline mt-3">Plans for every project.</h2>
+            <p className="lede mt-5">No commitments. Cancel online at any time.</p>
+          </div>
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {businessPlans.plans.map((p, i) => (
+              <Link
+                key={p.id}
+                href="/pricing/"
+                className={`reveal group relative rounded-[24px] p-7 transition hover:-translate-y-1 ${
+                  p.recommended ? "bg-ink text-on-ink" : "bg-bg-alt"
+                }`}
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                {p.recommended && (
+                  <span className="absolute right-5 top-5 rounded-full bg-on-ink/15 px-2.5 py-1 text-[11px] font-semibold">
+                    Popular
+                  </span>
+                )}
+                <h3 className="text-[19px] font-semibold">{p.name}</h3>
+                <p className={`mt-1 text-[14px] ${p.recommended ? "opacity-70" : "text-fg-2"}`}>{p.blurb}</p>
+                <p className="mt-6">
+                  <span className="text-[40px] font-bold tracking-tight">${p.monthly}</span>
+                  <span className={`text-[15px] ${p.recommended ? "opacity-70" : "text-fg-2"}`}>/mo</span>
+                </p>
+                <span className={`mt-5 inline-flex items-center gap-1 text-[15px] font-medium ${p.recommended ? "" : "text-link"}`}>
+                  Compare plans <Icon name="chevron" size={14} strokeWidth={2.4} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Faq />
+      <CtaSection />
+    </>
   );
 }

@@ -1,26 +1,247 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Design tokens
+   Apple-style neutrals + the four MobAppCreator brand colors from the
+   logo arcs. Every color in the UI comes from these variables, so
+   light/dark mode is handled here and nowhere else.
+   data-theme="light|dark" on <html> overrides the system setting.
+------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --card: #ffffff;
+  --fg: #1d1d1f;
+  --fg-2: #6e6e73;
+  --fg-3: #86868b;
+  --line: rgba(0, 0, 0, 0.1);
+  --ink: #1d1d1f; /* primary button */
+  --on-ink: #ffffff;
+  --link: #0066cc;
+  --glass: rgba(255, 255, 255, 0.72);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 30px rgba(0, 0, 0, 0.06);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --magenta: #c12a8f;
+  --sky: #33b0da;
+  --orange: #f28522;
+  --lime: #a6ce39;
+  --brand-ink: #0f1615;
+
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --bg-alt: #0d0d0f;
+    --card: #1c1c1e;
+    --fg: #f5f5f7;
+    --fg-2: #a1a1a6;
+    --fg-3: #8e8e93;
+    --line: rgba(255, 255, 255, 0.14);
+    --ink: #f5f5f7;
+    --on-ink: #000000;
+    --link: #2997ff;
+    --glass: rgba(22, 22, 23, 0.72);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 30px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-alt: #0d0d0f;
+  --card: #1c1c1e;
+  --fg: #f5f5f7;
+  --fg-2: #a1a1a6;
+  --fg-3: #8e8e93;
+  --line: rgba(255, 255, 255, 0.14);
+  --ink: #f5f5f7;
+  --on-ink: #000000;
+  --link: #2997ff;
+  --glass: rgba(22, 22, 23, 0.72);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 30px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-card: var(--card);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-on-ink: var(--on-ink);
+  --color-link: var(--link);
+  --color-magenta: var(--magenta);
+  --color-sky: var(--sky);
+  --color-orange: var(--orange);
+  --color-lime: var(--lime);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--sky) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--sky) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Headline type scale, close to Apple marketing pages */
+.display {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.headline {
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.title {
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.lede {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--fg-2);
+  letter-spacing: -0.012em;
+}
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(90deg, var(--sky), var(--magenta) 55%, var(--orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* Scroll reveal (see components/Reveal.tsx). Content stays visible
+   if JavaScript is off or the user prefers reduced motion. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Theme toggle shows the moon in light mode, the sun in dark mode */
+.theme-toggle .icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: block;
+  }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: none;
+  }
+}
+
+/* Long-form text (blog posts, legal pages) */
+.prose-apple h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 2.5rem 0 0.75rem;
+}
+.prose-apple h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.5rem;
+}
+.prose-apple p,
+.prose-apple li {
+  font-size: 1.075rem;
+  line-height: 1.7;
+  color: var(--fg-2);
+}
+.prose-apple p {
+  margin: 0 0 1.1rem;
+}
+.prose-apple ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 1.1rem;
+}
+.prose-apple a {
+  color: var(--link);
 }
