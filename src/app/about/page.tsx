@@ -3,7 +3,6 @@ import { pageMeta } from "@/lib/seo";
 import { CtaSection } from "@/components/sections";
 import { BrandBar, Container, PageHero, Section } from "@/components/ui";
 import { stats } from "@/lib/content";
-import { showcaseApps } from "@/lib/showcase";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
@@ -44,7 +43,7 @@ export default function AboutPage() {
               under the customer’s own brand, and our Pro Services team can design an app or build custom features.
             </p>
             <p>
-              So far, {stats[0].value} apps have been created on the platform. Today {showcaseApps.length} of them are featured
+              So far, {stats[0].value} apps have been created on the platform. Some of them are featured
               in our <a href="/showcase/">showcase</a>, built by unions, radio stations, churches, cooperatives, event organizers
               and local businesses. Agencies use our white label plans to sell apps to their own clients under their brand.
             </p>

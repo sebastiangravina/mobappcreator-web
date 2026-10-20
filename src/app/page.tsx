@@ -9,7 +9,7 @@ import { CtaSection, Faq, TrustedBy } from "@/components/sections";
 import { Button, Container, Section } from "@/components/ui";
 import { features, industries, stats, statsSource, steps } from "@/lib/content";
 import { businessPlans } from "@/lib/pricing";
-import { featuredShowcase, showcaseApps } from "@/lib/showcase";
+import { featuredShowcase } from "@/lib/showcase";
 import { ShowcaseCard } from "@/components/ShowcaseCard";
 import { site } from "@/lib/site";
 
@@ -196,7 +196,7 @@ export default function Home() {
             <p className="eyebrow">Showcase</p>
             <h2 className="headline mt-3">Real apps. Live on the stores.</h2>
             <p className="lede mt-5">
-              {showcaseApps.length} apps built with MobAppCreator, from radio stations and churches to events and local
+              Apps built with MobAppCreator, from radio stations and churches to events and local
               services.
             </p>
           </div>
@@ -207,7 +207,7 @@ export default function Home() {
           </div>
           <div className="reveal mt-10 text-center">
             <Button href="/showcase/" variant="link">
-              See all {showcaseApps.length} apps
+              See all apps
             </Button>
           </div>
         </Container>

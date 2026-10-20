@@ -21,7 +21,6 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
     );
   }, [apps, cat, q]);
 
-  const count = (c: string) => (c === "All" ? apps.length : apps.filter((a) => a.category === c).length);
   const visible = filtered.slice(0, shown);
 
   function pick(c: string) {
@@ -47,7 +46,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
                 cat === c ? "bg-ink text-on-ink" : "bg-bg-alt text-fg-2 ring-1 ring-line hover:text-fg"
               }`}
             >
-              {c} <span className="font-normal tabular-nums">{count(c)}</span>
+              {c}
             </button>
           ))}
         </div>
@@ -67,7 +66,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
         </label>
       </div>
 
-      <p role="status" className="mt-6 text-[14px] text-fg-2">
+      <p role="status" className="sr-only">
         {filtered.length} {filtered.length === 1 ? "app" : "apps"}
         {cat !== "All" ? ` in ${cat}` : ""}
         {q.trim() ? ` matching “${q.trim()}”` : ""}
@@ -75,7 +74,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
 
       <h2 className="sr-only">Apps</h2>
       {visible.length ? (
-        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((a, i) => (
             <ShowcaseCard key={a.slug} app={a} priority={i < 3} />
           ))}
@@ -93,7 +92,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
             onClick={() => setShown((n) => n + PAGE)}
             className="h-11 rounded-full bg-ink px-6 text-[15px] font-medium text-on-ink transition hover:opacity-85"
           >
-            Show more apps ({filtered.length - shown} left)
+            Show more apps
           </button>
         </div>
       )}

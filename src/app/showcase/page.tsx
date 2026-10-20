@@ -9,7 +9,7 @@ import { showcaseApps, showcaseCategories } from "@/lib/showcase";
 
 export const metadata: Metadata = pageMeta({
   title: "Showcase: Apps Made with MobAppCreator",
-  description: `See ${showcaseApps.length} real mobile apps built with MobAppCreator by unions, radio stations, churches, cooperatives, events and local businesses, on iPhone and Android.`,
+  description: `See real mobile apps built with MobAppCreator by unions, radio stations, churches, cooperatives, events and local businesses, on iPhone and Android.`,
   path: "/showcase/",
 });
 
@@ -38,7 +38,7 @@ export default function ShowcasePage() {
       <PageHero
         eyebrow="Showcase"
         title="Made with MobAppCreator."
-        lede={`${showcaseApps.length} apps live on the App Store and Google Play, built by unions, radio stations, churches, cooperatives, event organizers and local businesses.`}
+        lede={`Apps live on the App Store and Google Play, built by unions, radio stations, churches, cooperatives, event organizers and local businesses.`}
       />
       <section className="pb-24">
         <Container className="max-w-[1200px]">

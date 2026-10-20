@@ -1,5 +1,5 @@
 import { faqs } from "@/lib/content";
-import { showcaseApps, trustedApps } from "@/lib/showcase";
+import { trustedApps } from "@/lib/showcase";
 import { site } from "@/lib/site";
 import { Icon } from "./Icon";
 import { BrandBar, Button, Container, Section } from "./ui";
@@ -89,7 +89,7 @@ export function TrustedBy() {
         </ul>
         <div className="reveal mt-12 text-center">
           <Button href="/showcase/" variant="link">
-            See all {showcaseApps.length} apps
+            See all apps
           </Button>
         </div>
       </Container>
