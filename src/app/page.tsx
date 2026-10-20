@@ -7,7 +7,7 @@ import { Icon } from "@/components/Icon";
 import { PhoneMockup } from "@/components/PhoneMockup";
 import { CtaSection, Faq, TrustedBy } from "@/components/sections";
 import { Button, Container, Section } from "@/components/ui";
-import { features, industries, stats, statsSource, steps } from "@/lib/content";
+import { features, industries, stats, steps } from "@/lib/content";
 import { businessPlans } from "@/lib/pricing";
 import { featuredShowcase } from "@/lib/showcase";
 import { ShowcaseCard } from "@/components/ShowcaseCard";
@@ -222,7 +222,6 @@ export default function Home() {
               <p className="mt-1 text-[15px] text-fg-2">{s.label}</p>
             </div>
           ))}
-          <p className="col-span-2 text-center text-[13px] text-fg-3 md:col-span-4">{statsSource}</p>
         </Container>
       </section>
 

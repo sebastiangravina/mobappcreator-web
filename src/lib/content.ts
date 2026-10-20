@@ -52,15 +52,13 @@ export const industries = [
   "Contractors", "Chiropractors", "Schools", "Any small business",
 ];
 
-// Platform totals from the live counters on mobappcreator.com (October 19, 2026):
-// 632,734 apps created, 73,445,235 app views, 9,439,732 app modules connected.
+// Company facts confirmed by MobApp Labs (October 2026).
 export const stats = [
-  { value: "630K+", label: "Apps created" },
-  { value: "73M+", label: "App views" },
-  { value: "9.4M+", label: "App modules connected" },
+  { value: "10+", label: "Years building apps" },
+  { value: "20+", label: "Countries with live apps" },
+  { value: "3", label: "Platforms: iPhone, iPad and Android" },
   { value: "14 days", label: "Free trial, no card" },
 ];
-export const statsSource = "Platform totals from mobappcreator.com, October 2026.";
 
 
 export const faqs = [
