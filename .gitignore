@@ -43,3 +43,6 @@ next-env.d.ts
 # local leftovers, not part of the site
 /_to_delete/
 /1
+
+# example env file (no secrets)
+!.env.example

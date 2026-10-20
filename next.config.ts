@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Fully static marketing site: `npm run build` writes plain HTML to /out.
-  // Works on Vercel, Netlify, S3/CloudFront or any static host.
-  output: "export",
+  // Pages are still prerendered as static HTML at build time. The only server code is
+  // the contact form endpoint (src/app/api/contact/route.ts), which runs as a Vercel Function.
   trailingSlash: true,
   images: { unoptimized: true },
   turbopack: {
