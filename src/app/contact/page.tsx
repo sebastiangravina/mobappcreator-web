@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
 import { Container, PageHero } from "@/components/ui";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Questions about MobAppCreator, agency plans or support? Get in touch.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Contact Us",
+  description:
+    "Questions about MobAppCreator plans, agency white label or your app? Contact our team in Miami and Buenos Aires, or visit the Help Center for guides.",
+  path: "/contact/",
+});
 
 export default function ContactPage() {
   return (

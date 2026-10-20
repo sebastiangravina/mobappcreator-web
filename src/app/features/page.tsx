@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Icon } from "@/components/Icon";
 import { PhoneMockup } from "@/components/PhoneMockup";
 import { CtaSection } from "@/components/sections";
@@ -6,10 +7,12 @@ import { Button, Container, PageHero, Section } from "@/components/ui";
 import { features } from "@/lib/content";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Features",
-  description: "Push notifications, ecommerce, forms, streaming, monetization and more. Every module your app needs, ready to switch on.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Features: Push, eCommerce, Streaming and More",
+  description:
+    "Push notifications, ecommerce shop, form builder, radio and video streaming, AdMob monetization, analytics and more. Every module your app needs, ready to switch on.",
+  path: "/features/",
+});
 
 const spotlights = [
   {

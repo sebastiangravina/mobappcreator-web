@@ -62,7 +62,7 @@ export function Button({ href, children, variant = "primary", size = "md", class
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <Image src="/brand/mark.png" alt="" width={30} height={30} priority className="h-[30px] w-[30px]" />
+      <Image src="/brand/mark-96.png" alt="" width={30} height={30} priority className="h-[30px] w-[30px]" />
       <span className="flex flex-col leading-none">
         <span className="text-[15px] font-extrabold tracking-[0.04em]">MOBAPP</span>
         <span className="text-[10.5px] font-light tracking-[0.32em]">CREATOR</span>
@@ -103,13 +103,5 @@ export function PageHero({
         {children && <div className="mt-9 flex flex-wrap items-center justify-center gap-4">{children}</div>}
       </Container>
     </section>
-  );
-}
-
-export function SampleTag() {
-  return (
-    <span className="ml-2 inline-block rounded-full border border-dashed border-line px-2 py-0.5 align-middle text-[11px] font-medium uppercase tracking-wider text-fg-3">
-      Sample
-    </span>
   );
 }

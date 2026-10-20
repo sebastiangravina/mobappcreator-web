@@ -1,6 +1,6 @@
 import type { IconName } from "@/lib/content";
 
-export type Name = IconName | "check" | "dash" | "arrow" | "chevron" | "plus" | "sun" | "moon" | "menu" | "close" | "phone" | "tablet" | "android" | "mail" | "pin";
+export type Name = IconName | "check" | "dash" | "arrow" | "chevron" | "plus" | "sun" | "moon" | "menu" | "close" | "phone" | "tablet" | "android" | "mail" | "pin" | "info" | "warning" | "search" | "book";
 
 // Simple 24px line icons in the spirit of SF Symbols.
 const paths: Record<Name, React.ReactNode> = {
@@ -35,6 +35,10 @@ const paths: Record<Name, React.ReactNode> = {
   tablet: <><rect x="4.5" y="3" width="15" height="18" rx="2.5" /><path d="M11 18h2" /></>,
   android: <><rect x="5" y="9" width="14" height="10" rx="2.5" /><path d="M7 9a5 5 0 0 1 10 0M8 5 6.5 3M16 5l1.5-2" /><circle cx="9.5" cy="12" r=".6" /><circle cx="14.5" cy="12" r=".6" /></>,
   mail: <><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" /><path d="m4 7 8 6 8-6" /></>,
+  info: <><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5M12 8h.01" /></>,
+  warning: <><path d="M10.3 4.3 3 17a2 2 0 0 0 1.7 3h14.6A2 2 0 0 0 21 17L13.7 4.3a2 2 0 0 0-3.4 0Z" /><path d="M12 10v4M12 17h.01" /></>,
+  search: <><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></>,
+  book: <><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13ZM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5v-13Z" /></>,
   pin: <><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></>,
 };
 

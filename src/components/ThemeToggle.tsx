@@ -16,7 +16,9 @@ export function ThemeToggle() {
     root.dataset.theme = next;
     try {
       localStorage.setItem("theme", next);
-    } catch {}
+    } catch {
+      // Storage can be blocked (private mode); the theme still applies for this visit.
+    }
   }
 
   return (

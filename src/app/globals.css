@@ -12,8 +12,8 @@
   --bg-alt: #f5f5f7;
   --card: #ffffff;
   --fg: #1d1d1f;
-  --fg-2: #6e6e73;
-  --fg-3: #86868b;
+  --fg-2: #57575c;
+  --fg-3: #6e6e73;
   --line: rgba(0, 0, 0, 0.1);
   --ink: #1d1d1f; /* primary button */
   --on-ink: #ffffff;
@@ -216,7 +216,7 @@ body {
   }
 }
 
-/* Long-form text (blog posts, legal pages) */
+/* Long-form text (legal pages) */
 .prose-apple h2 {
   font-size: 1.6rem;
   font-weight: 700;
@@ -244,4 +244,6 @@ body {
 }
 .prose-apple a {
   color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

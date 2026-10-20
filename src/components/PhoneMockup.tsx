@@ -88,7 +88,7 @@ export function PhoneMockup({
                   />
                   <div className="flex-1">
                     <p className="text-[9.5px] font-semibold">{d}</p>
-                    <p className="text-[8px] text-[#8e8e93]">USD {14 + i * 4}</p>
+                    <p className="text-[8px] text-[#6e6e73]">USD {14 + i * 4}</p>
                   </div>
                   <div className="mr-1 grid h-5 w-5 place-items-center rounded-full text-white" style={{ background: accent }}>
                     <Icon name="plus" size={11} strokeWidth={2.6} />

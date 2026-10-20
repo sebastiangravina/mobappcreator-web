@@ -1,0 +1,421 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/en",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/es",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/es/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4191132-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/first-steps/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4192245-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/designing-your-app/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4201325-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/introduction-to-screens/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4342238-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/app-launch-icon/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/91224-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/naming-your-app/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4343397-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/updating-your-app/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/91524-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/getting-started/facebook-page/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4176914-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/publishing/publishing-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174054-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/publishing/store-guidelines/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174099-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/publishing/after-launch/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/91120-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/publishing/selling-your-app/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/91130-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/publishing/why-publish-on-the-stores/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174070-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/apple/create-apple-developer-account/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174073-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/apple/two-factor-authentication/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4209307-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/apple/give-mobappcreator-access/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174093-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/apple/enterprise-developer-account/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4363060-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/apple/apple-rejection-reasons/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/92690-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/apple/apple-review-time/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174041-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/google/create-google-play-developer-account/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174025-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/google/link-google-play-account/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4174049-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/google/find-google-play-account-name/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/92807-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/google/google-review-time/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4191148-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/engagement/push-notifications/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4651289-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/ecommerce/payment-gateways/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4651325-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/ecommerce/configure-payment-gateway/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/91672-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/allow-registration/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4245936-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/sign-in-methods/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4231361-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/display-news-articles/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4267581-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/admob-monetization/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4291950-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/custom-article-elements/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4303346-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/article-categories/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4303368-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/arrange-screens/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/4303409-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/pro-tips/create-submenu/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|es)/articles/5577757-:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/developers/api/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "help.mobappcreator.com"
+        }
+      ],
+      "destination": "https://www.mobappcreator.com/help/",
+      "permanent": true
+    }
+  ]
+}

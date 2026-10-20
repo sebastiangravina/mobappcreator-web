@@ -1,11 +1,12 @@
-import { faqs, testimonials } from "@/lib/content";
+import { faqs } from "@/lib/content";
+import { showcaseApps, trustedApps } from "@/lib/showcase";
 import { site } from "@/lib/site";
 import { Icon } from "./Icon";
-import { BrandBar, Button, Container, SampleTag, Section } from "./ui";
+import { BrandBar, Button, Container, Section } from "./ui";
 
 export function CtaSection({
   title = "Your app could be live this week.",
-  lede = `Try every feature free for ${site.trialDays} days. No credit card required.`,
+  lede = `Try MobAppCreator free for ${site.trialDays} days. No credit card required.`,
 }: {
   title?: string;
   lede?: string;
@@ -51,7 +52,7 @@ export function Faq({ items = faqs, title = "Questions? Answers." }: { items?: t
         </div>
         <p className="mt-8 text-center text-[15px] text-fg-2">
           More questions? Visit the{" "}
-          <a className="text-link hover:underline" href={site.helpUrl}>
+          <a className="text-link underline underline-offset-[3px]" href={site.helpUrl}>
             help center
           </a>
           .
@@ -61,29 +62,35 @@ export function Faq({ items = faqs, title = "Questions? Answers." }: { items?: t
   );
 }
 
-export function Testimonials() {
+export function TrustedBy() {
   return (
     <Section alt>
       <Container>
-        <h2 className="headline reveal text-center">
-          Loved by businesses
-          <br className="hidden sm:block" /> of every size.
-          <SampleTag />
-        </h2>
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <figure
-              key={i}
-              className="reveal flex flex-col rounded-[24px] bg-card p-7 shadow-[var(--shadow)]"
-              style={{ transitionDelay: `${i * 90}ms` }}
-            >
-              <blockquote className="flex-1 text-[19px] leading-snug tracking-tight">“{t.quote}”</blockquote>
-              <figcaption className="mt-6 text-[14px]">
-                <span className="font-semibold">{t.name}</span>
-                <span className="block text-fg-2">{t.role}</span>
-              </figcaption>
-            </figure>
+        <div className="reveal mx-auto max-w-3xl text-center">
+          <p className="eyebrow">Trusted by</p>
+          <h2 className="headline mt-3">Organizations that run their app on MobAppCreator.</h2>
+          <p className="lede mt-5">Unions, radio stations, churches, cooperatives, events and local businesses.</p>
+        </div>
+        <ul className="reveal mx-auto mt-14 grid max-w-5xl grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-6">
+          {trustedApps.map((a) => (
+            <li key={a.slug} className="flex flex-col items-center text-center">
+                            <img
+                src={`/showcase/icons/${a.slug}.webp`}
+                alt=""
+                width={64}
+                height={64}
+                loading="lazy"
+                decoding="async"
+                className="h-16 w-16 rounded-[16px] bg-white shadow-[var(--shadow)] ring-1 ring-line"
+              />
+              <span className="mt-2.5 line-clamp-2 text-[13px] leading-snug text-fg-2">{a.name}</span>
+            </li>
           ))}
+        </ul>
+        <div className="reveal mt-12 text-center">
+          <Button href="/showcase/" variant="link">
+            See all {showcaseApps.length} apps
+          </Button>
         </div>
       </Container>
     </Section>

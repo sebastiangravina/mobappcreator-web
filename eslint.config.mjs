@@ -1,18 +1,21 @@
+// ESLint setup without eslint-config-next.
+// eslint-config-next pulls in `braces` (via fast-glob), which has an unpatched
+// high-severity advisory (GHSA-vfj7-8cjw-p6xm). These plugins give the same
+// core checks: JavaScript, TypeScript and the React hooks rules.
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
+import reactHooks from "eslint-plugin-react-hooks";
+import globals from "globals";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
+export default defineConfig([
+  globalIgnores([".next/**", "out/**", "build/**", "node_modules/**", "next-env.d.ts"]),
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  reactHooks.configs.flat["recommended-latest"],
+  {
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+  },
 ]);
-
-export default eslintConfig;

@@ -18,15 +18,16 @@ The site is fully static (`output: "export"`), so `/out` can be deployed to Verc
 | --- | --- |
 | URLs, trial length, offices, nav | `src/lib/site.ts` |
 | Plans, prices, feature tables | `src/lib/pricing.ts` |
-| Features, FAQ, industries, testimonials, showcase, blog posts | `src/lib/content.ts` |
+| Features, FAQ, industries, platform stats | `src/lib/content.ts` |
+| Showcase apps (real apps, from the app-cards catalog) | `src/lib/showcase.ts`, images in `public/showcase/` |
 | Colors, type scale, dark mode | `src/app/globals.css` |
 | Pages | `src/app/**/page.tsx` |
 | Shared UI (header, footer, buttons, phone mockup, pricing table) | `src/components/` |
 
 ## Before launch
 
-- Replace everything marked **SAMPLE** (stats, testimonials, showcase apps, blog posts, About story). The UI shows a small “Sample” tag next to these.
+- Update the platform stats in `src/lib/content.ts` when the counters on the current site change.
 - Confirm the yearly prices (currently monthly − 17%, rounded down).
 - Replace the placeholder legal text in `src/app/legal/`.
-- Set the real contact email in `site.ts`. The contact form opens the visitor’s email app; hook it to a form service if you want submissions collected.
+- The contact form opens the visitor’s email app; hook it to a form service if you want submissions collected.
 - Add real app screenshots if you prefer them to the HTML phone mockups.

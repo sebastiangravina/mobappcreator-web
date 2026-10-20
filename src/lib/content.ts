@@ -1,4 +1,4 @@
-// Marketing content. Items marked SAMPLE are placeholders written for the
+// Marketing content.
 // first draft. Replace them with real data before launch.
 
 export type IconName =
@@ -52,32 +52,16 @@ export const industries = [
   "Contractors", "Chiropractors", "Schools", "Any small business",
 ];
 
-// SAMPLE — replace with real platform numbers.
+// Platform totals from the live counters on mobappcreator.com (October 19, 2026):
+// 632,734 apps created, 73,445,235 app views, 9,439,732 app modules connected.
 export const stats = [
-  { value: "100K+", label: "Apps created" },
-  { value: "40M+", label: "App views" },
-  { value: "60+", label: "Ready-made modules" },
+  { value: "630K+", label: "Apps created" },
+  { value: "73M+", label: "App views" },
+  { value: "9.4M+", label: "App modules connected" },
   { value: "14 days", label: "Free trial, no card" },
 ];
+export const statsSource = "Platform totals from mobappcreator.com, October 2026.";
 
-// SAMPLE — placeholder testimonials. Replace with real, approved quotes.
-export const testimonials = [
-  {
-    quote: "We had our restaurant app on both stores in a week. Online orders now come straight from the app.",
-    name: "Sample customer",
-    role: "Restaurant owner",
-  },
-  {
-    quote: "The white label dashboard lets us sell apps to our clients under our own brand. It became a new revenue line.",
-    name: "Sample customer",
-    role: "Digital agency founder",
-  },
-  {
-    quote: "Push notifications brought members back to our gym classes. It paid for itself in the first month.",
-    name: "Sample customer",
-    role: "Fitness studio manager",
-  },
-];
 
 export const faqs = [
   {
@@ -86,7 +70,7 @@ export const faqs = [
   },
   {
     q: "How does the free trial work?",
-    a: "You get 14 days to build your app with every feature unlocked. Choose a plan when you are ready to publish.",
+    a: "You get 14 days free to build and try your app, and no credit card is required to start. Choose a plan when you are ready to publish it on the stores.",
   },
   {
     q: "Will my app be on the App Store and Google Play?",
@@ -106,87 +90,3 @@ export const faqs = [
   },
 ];
 
-// SAMPLE — showcase apps. Replace with real customer apps and screenshots.
-export const showcase = [
-  { name: "La Parrilla", category: "Restaurant", color: "var(--orange)", desc: "Menu, online orders and table bookings." },
-  { name: "Pulse Fitness", category: "Gym", color: "var(--lime)", desc: "Class schedule, memberships and push reminders." },
-  { name: "Radio Sur 98.5", category: "Radio", color: "var(--magenta)", desc: "Live streaming, podcasts and news." },
-  { name: "Costa Azul Resort", category: "Hotel", color: "var(--sky)", desc: "Room service, spa bookings and local guide." },
-  { name: "Grace Community", category: "Church", color: "var(--magenta)", desc: "Sermons, events and donations." },
-  { name: "Urban Cuts", category: "Salon", color: "var(--orange)", desc: "Appointments, loyalty and promotions." },
-  { name: "Prime Realty", category: "Real estate", color: "var(--sky)", desc: "Listings, open houses and agent contact." },
-  { name: "Green Valley Golf", category: "Golf", color: "var(--lime)", desc: "Tee times, scorecards and club news." },
-];
-
-export type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string; // ISO
-  category: string;
-  readMinutes: number;
-  color: string;
-  body: { h?: string; p: string }[];
-};
-
-// SAMPLE — blog posts. Swap for a CMS (or MDX files) later.
-export const posts: Post[] = [
-  {
-    slug: "why-your-small-business-needs-an-app",
-    title: "Why your small business needs its own app in 2026",
-    excerpt: "A website brings people in. An app keeps them coming back. Here is what changes when your brand lives on your customers’ home screen.",
-    date: "2026-10-06",
-    category: "Small business",
-    readMinutes: 5,
-    color: "var(--sky)",
-    body: [
-      { p: "Your customers already spend most of their phone time inside apps. Having your own puts your brand one tap away, next to the apps they use every day." },
-      { h: "Direct, free reach", p: "Push notifications reach every customer who installed your app, at no cost per message. No algorithm decides who sees your offer." },
-      { h: "Loyalty that sticks", p: "Bookings, orders and loyalty cards inside your app make repeat visits easier than going to a competitor." },
-      { h: "Faster than you think", p: "With a no-code builder, a first version can be ready in an afternoon and live on the stores within days." },
-    ],
-  },
-  {
-    slug: "push-notifications-that-people-love",
-    title: "7 push notification ideas your customers will actually like",
-    excerpt: "Good push messages feel like a favor, not an ad. Seven examples you can copy this week.",
-    date: "2026-09-22",
-    category: "Marketing",
-    readMinutes: 4,
-    color: "var(--magenta)",
-    body: [
-      { p: "The best notifications are timely, personal and short. Here are seven that work for most small businesses." },
-      { h: "1. The gentle reminder", p: "“Your class starts in 2 hours.” Useful, expected and appreciated." },
-      { h: "2. The insider offer", p: "Give app users a perk nobody else gets. It rewards the install." },
-      { h: "3. The news they asked for", p: "New menu, new arrivals, new episode: tell the people who opted in to hear it." },
-    ],
-  },
-  {
-    slug: "start-an-app-agency",
-    title: "How to start selling mobile apps to your clients",
-    excerpt: "Agencies are adding apps to their offer without hiring developers. A practical guide to pricing, packaging and delivery.",
-    date: "2026-09-08",
-    category: "Agencies",
-    readMinutes: 7,
-    color: "var(--orange)",
-    body: [
-      { p: "Most of your clients already pay you for a website, social media or ads. An app is a natural next step, and it brings recurring revenue." },
-      { h: "Package it simply", p: "Offer a setup fee plus a monthly plan that includes hosting, updates and push campaigns." },
-      { h: "Deliver under your brand", p: "A white label dashboard means your clients log in to your platform, on your domain, with your logo." },
-    ],
-  },
-  {
-    slug: "getting-approved-on-the-app-store",
-    title: "Getting approved on the App Store: a checklist",
-    excerpt: "Most rejections come from a handful of avoidable issues. Check these before you submit.",
-    date: "2026-08-25",
-    category: "Guides",
-    readMinutes: 6,
-    color: "var(--lime)",
-    body: [
-      { p: "Apple reviews every app by hand. These are the points that most often cause a rejection, and how to avoid them." },
-      { h: "Real content, real value", p: "Apps that only wrap a website are often rejected. Use native features like push, bookings or offline content." },
-      { h: "Complete metadata", p: "Screenshots, description, privacy policy URL and support contact must all be in place." },
-    ],
-  },
-];

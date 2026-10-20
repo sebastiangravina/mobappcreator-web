@@ -9,9 +9,9 @@ export const site = {
   appUrl: "https://apps.mobappcreator.com",
   signupUrl: "https://apps.mobappcreator.com",
   loginUrl: "https://apps.mobappcreator.com",
-  helpUrl: "https://help.mobappcreator.com/en",
+  helpUrl: "/help/",
   trialDays: 14,
-  email: "hello@mobappcreator.com", // SAMPLE — replace with the real address
+  email: "info@mobappcreator.com",
   social: {
     twitter: "https://twitter.com/mobappcreator",
     youtube: "https://www.youtube.com/watch?v=iVM6D4HSooQ",
@@ -35,7 +35,7 @@ export const mainNav = [
   { label: "Showcase", href: "/showcase/" },
   { label: "Pricing", href: "/pricing/" },
   { label: "Agencies", href: "/pricing/?plan=agency" },
-  { label: "Blog", href: "/blog/" },
+  { label: "Help", href: "/help/" },
   { label: "Contact", href: "/contact/" },
 ];
 
@@ -53,14 +53,13 @@ export const footerNav = [
     title: "Company",
     links: [
       { label: "About", href: "/about/" },
-      { label: "Blog", href: "/blog/" },
-      { label: "Contact", href: "/contact/" },
+          { label: "Contact", href: "/contact/" },
     ],
   },
   {
     title: "Support",
     links: [
-      { label: "Help center", href: "https://help.mobappcreator.com/en" },
+      { label: "Help Center", href: "/help/" },
       { label: "Log in", href: "https://apps.mobappcreator.com" },
       { label: "Start free trial", href: "https://apps.mobappcreator.com" },
     ],
@@ -68,7 +67,7 @@ export const footerNav = [
   {
     title: "Legal",
     links: [
-      { label: "Terms of Service", href: "/legal/terms/" },
+      { label: "Terms and Conditions", href: "/legal/terms/" },
       { label: "Privacy Policy", href: "/legal/privacy/" },
     ],
   },

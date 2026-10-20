@@ -49,14 +49,16 @@ function Segmented<T extends string>({
 function CellValue({ v }: { v: Cell }) {
   if (v === true)
     return (
-      <span className="inline-flex text-fg" aria-label="Included">
+      <span className="inline-flex text-fg">
         <Icon name="check" size={18} strokeWidth={2.2} />
+        <span className="sr-only">Included</span>
       </span>
     );
   if (v === false)
     return (
-      <span className="inline-flex text-fg-3/60" aria-label="Not included">
+      <span className="inline-flex text-fg-3">
         <Icon name="dash" size={18} />
+        <span className="sr-only">Not included</span>
       </span>
     );
   return <span className="font-medium">{v}</span>;
@@ -118,6 +120,7 @@ export function Pricing() {
       </div>
 
       {/* Plan cards */}
+      <h2 className="sr-only">{data.title} plans</h2>
       <div className={`mx-auto mt-12 grid gap-4 sm:grid-cols-2 ${cols === 4 ? "lg:grid-cols-4" : "max-w-[960px] lg:grid-cols-3"}`}>
         {data.plans.map((p) => {
           const price = billing === "monthly" ? p.monthly : p.yearly;
@@ -147,7 +150,7 @@ export function Pricing() {
               </p>
               <div className="mt-4 flex items-center gap-2 text-fg-2">
                 {p.platforms.map((pl) => (
-                  <span key={pl} title={platformIcon[pl].label}>
+                  <span key={pl} title={platformIcon[pl].label} className="inline-flex">
                     <Icon name={platformIcon[pl].icon} size={20} label={platformIcon[pl].label} />
                   </span>
                 ))}

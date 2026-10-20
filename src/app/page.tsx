@@ -1,15 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
+import { faqSchema, softwareSchema } from "@/lib/schema";
+import { pageMeta } from "@/lib/seo";
 import { Icon } from "@/components/Icon";
 import { PhoneMockup } from "@/components/PhoneMockup";
-import { CtaSection, Faq, Testimonials } from "@/components/sections";
-import { Button, Container, SampleTag, Section } from "@/components/ui";
-import { features, industries, stats, steps } from "@/lib/content";
+import { CtaSection, Faq, TrustedBy } from "@/components/sections";
+import { Button, Container, Section } from "@/components/ui";
+import { features, industries, stats, statsSource, steps } from "@/lib/content";
 import { businessPlans } from "@/lib/pricing";
+import { featuredShowcase, showcaseApps } from "@/lib/showcase";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  ...pageMeta({
+    title: "MobAppCreator: No-Code App Builder for iPhone & Android",
+    description:
+      "Build, publish and grow native iPhone, iPad and Android apps without code. For small businesses, entrepreneurs and agencies. Try it free for 14 days.",
+    path: "/",
+  }),
+};
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={[softwareSchema, faqSchema]} />
       {/* ---------- Hero ---------- */}
       <section className="relative overflow-hidden pt-32 sm:pt-40">
         <div
@@ -29,7 +45,7 @@ export default function Home() {
           </h1>
           <p className="lede mx-auto mt-6 max-w-2xl">
             Create, publish and grow native apps for iPhone, iPad and Android. Made for small businesses,
-            entrepreneurs and the agencies that serve them.
+            entrepreneurs and agencies.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
             <Button href={site.signupUrl} size="lg">
@@ -39,7 +55,7 @@ export default function Home() {
               See how it works
             </Button>
           </div>
-          <p className="mt-4 text-[13px] text-fg-3">{site.trialDays} days free · No credit card · Cancel anytime</p>
+          <p className="mt-4 text-[13px] text-fg-3">{site.trialDays} days free · No credit card required · Cancel anytime</p>
 
           <div className="relative mx-auto mt-16 flex h-[430px] max-w-[760px] items-end justify-center sm:h-[560px]">
             <div className="absolute bottom-0 left-[4%] hidden origin-bottom -rotate-6 scale-[0.86] opacity-95 sm:block md:left-[10%]">
@@ -112,7 +128,7 @@ export default function Home() {
                   in-app inbox.
                 </p>
               </div>
-              <div className="mt-auto flex h-[300px] justify-center overflow-hidden">
+              <div className="mt-auto flex h-[320px] items-start justify-center">
                 <PhoneMockup variant="push" appName="Pulse Fitness" accent="var(--magenta)" className="mt-2 shrink-0" />
               </div>
             </div>
@@ -123,7 +139,7 @@ export default function Home() {
                   Ecommerce, forms and bookings, radio and video streaming, all ready to switch on.
                 </p>
               </div>
-              <div className="mt-auto flex h-[300px] justify-center overflow-hidden">
+              <div className="mt-auto flex h-[320px] items-start justify-center">
                 <PhoneMockup className="mt-2 shrink-0" />
               </div>
             </div>
@@ -170,9 +186,28 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </Container>
+      </Section>
+
+      {/* ---------- Showcase ---------- */}
+      <Section alt>
+        <Container className="max-w-[1200px]">
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Showcase</p>
+            <h2 className="headline mt-3">Real apps. Live on the stores.</h2>
+            <p className="lede mt-5">
+              {showcaseApps.length} apps built with MobAppCreator, from radio stations and churches to events and local
+              services.
+            </p>
+          </div>
+          <div className="reveal mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredShowcase.map((a) => (
+              <ShowcaseCard key={a.slug} app={a} />
+            ))}
+          </div>
           <div className="reveal mt-10 text-center">
             <Button href="/showcase/" variant="link">
-              See apps made with MobAppCreator
+              See all {showcaseApps.length} apps
             </Button>
           </div>
         </Container>
@@ -187,9 +222,7 @@ export default function Home() {
               <p className="mt-1 text-[15px] text-fg-2">{s.label}</p>
             </div>
           ))}
-          <p className="col-span-2 text-center md:col-span-4">
-            <SampleTag />
-          </p>
+          <p className="col-span-2 text-center text-[13px] text-fg-3 md:col-span-4">{statsSource}</p>
         </Container>
       </section>
 
@@ -254,7 +287,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Testimonials />
+      <TrustedBy />
 
       {/* ---------- Pricing teaser ---------- */}
       <Section>
@@ -262,7 +295,7 @@ export default function Home() {
           <div className="reveal mx-auto max-w-3xl text-center">
             <p className="eyebrow">Pricing</p>
             <h2 className="headline mt-3">Plans for every project.</h2>
-            <p className="lede mt-5">No commitments. Cancel online at any time.</p>
+            <p className="lede mt-5">No credit card required. Cancel online at any time.</p>
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {businessPlans.plans.map((p, i) => (
