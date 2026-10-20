@@ -47,7 +47,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
                 cat === c ? "bg-ink text-on-ink" : "bg-bg-alt text-fg-2 ring-1 ring-line hover:text-fg"
               }`}
             >
-              {c} <span className="opacity-60">{count(c)}</span>
+              {c} <span className="font-normal tabular-nums">{count(c)}</span>
             </button>
           ))}
         </div>
@@ -73,6 +73,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
         {q.trim() ? ` matching “${q.trim()}”` : ""}
       </p>
 
+      <h2 className="sr-only">Apps</h2>
       {visible.length ? (
         <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((a, i) => (

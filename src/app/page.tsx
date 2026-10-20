@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ...pageMeta({
     title: "MobAppCreator: No-Code App Builder for iPhone & Android",
     description:
-      "Build, publish and grow native iPhone, iPad and Android apps without code. For small businesses, entrepreneurs and agencies. Try it free for 14 days.",
+      "Build, publish and grow native iPhone, iPad and Android apps without code. For small businesses, entrepreneurs and agencies. 14-day free trial, no credit card.",
     path: "/",
   }),
 };

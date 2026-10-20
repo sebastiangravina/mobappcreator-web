@@ -6,7 +6,7 @@ import { Breadcrumb } from "@/components/help/Breadcrumb";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { Container } from "@/components/ui";
-import { articleMeta } from "@/lib/help-seo";
+import { articleMeta, articleTitleMeta } from "@/lib/help-seo";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
 import { formatDate } from "@/lib/format";
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { category, slug } = await params;
   const a = getArticle(category, slug);
   if (!a) return {};
-  return pageMeta({ title: a.title, description: articleMeta[a.slug] ?? a.description, path: articleHref(a), type: "article" });
+  return pageMeta({ title: articleTitleMeta[a.slug] ?? a.title, description: articleMeta[a.slug] ?? a.description, path: articleHref(a), type: "article" });
 }
 
 export default async function HelpArticlePage({ params }: Params) {

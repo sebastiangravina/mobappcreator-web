@@ -8,6 +8,8 @@ export function ShowcaseCard({ app, priority = false }: { app: ShowcaseApp; prio
       {/* The card image already shows the app name, category, screenshots and description. */}
       <img
         src={`/showcase/${app.slug}.webp`}
+        srcSet={`/showcase/640/${app.slug}.webp 640w, /showcase/${app.slug}.webp 1000w`}
+        sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
         alt={`${app.name}: ${app.description}`}
         width={1000}
         height={786}

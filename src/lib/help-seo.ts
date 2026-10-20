@@ -113,3 +113,9 @@ export const articleMeta: Record<string, string> = {
     "Group related screens in a submenu in your MobAppCreator app: add the Submenu component, name it, move screens into it and customize how it looks.",
   api: "MobAppCreator API reference: bearer token authentication, list, create and update app items, manage users and send push notifications with curl examples.",
 };
+
+// Shorter <title> tags (under 60 characters) for articles whose on-page title is long.
+export const articleTitleMeta: Record<string, string> = {
+  "publishing-guide": "Publishing Guide: App Store and Google Play",
+  "give-mobappcreator-access": "Give MobAppCreator Access to Your Apple Developer Account",
+};

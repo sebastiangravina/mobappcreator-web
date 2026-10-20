@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "Features: Push, eCommerce, Streaming and More",
   description:
-    "Push notifications, ecommerce shop, form builder, radio and video streaming, AdMob monetization, analytics and more. Every module your app needs, ready to switch on.",
+    "Push notifications, an eCommerce shop, forms, radio and video streaming, AdMob ads, analytics and more. Every module your app needs, ready to switch on.",
   path: "/features/",
 });
 

@@ -11,7 +11,7 @@ import { articleHref, articlesIn, helpArticles, helpCategories, popularArticles,
 export const metadata: Metadata = pageMeta({
   title: "Help Center",
   description:
-    "Step-by-step guides for building, publishing and growing your app with MobAppCreator: App Store and Google Play publishing, push notifications, eCommerce and more.",
+    "Step-by-step guides to build, publish and grow your app with MobAppCreator: App Store and Google Play publishing, push notifications, eCommerce and more.",
   path: "/help/",
 });
 
