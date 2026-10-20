@@ -56,7 +56,7 @@ export const industries = [
 export const stats = [
   { value: "10+", label: "Years building apps" },
   { value: "20+", label: "Countries with live apps" },
-  { value: "3", label: "Platforms: iPhone, iPad and Android" },
+  { value: "25+", label: "Ready-made app modules" },
   { value: "14 days", label: "Free trial, no card" },
 ];
 
