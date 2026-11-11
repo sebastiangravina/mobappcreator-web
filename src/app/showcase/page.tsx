@@ -25,7 +25,7 @@ export default function ShowcasePage() {
       <section className="pb-24">
         <Container className="max-w-[1200px]">
           <ShowcaseGallery
-            apps={showcaseApps.map(({ slug, category, ios, android }) => ({ slug, category, ios, android }))}
+            apps={showcaseApps.map(({ img, category, ios, android }) => ({ img, category, ios, android }))}
             categories={showcaseCategories}
           />
         </Container>

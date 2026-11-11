@@ -52,7 +52,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseCardData[]
       {visible.length ? (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((a, i) => (
-            <ShowcaseCard key={a.slug} app={a} priority={i < 3} />
+            <ShowcaseCard key={a.img} app={a} priority={i < 3} />
           ))}
         </div>
       ) : (

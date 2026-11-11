@@ -6,8 +6,8 @@ export function ShowcaseCard({ app, priority = false }: { app: ShowcaseCardData;
   return (
     <article className="flex flex-col overflow-hidden rounded-[24px] bg-card ring-1 ring-line">
       <img
-        src={`/showcase/${app.slug}.webp`}
-        srcSet={`/showcase/640/${app.slug}.webp 480w, /showcase/${app.slug}.webp 604w`}
+        src={`/showcase/cards/${app.img}.webp`}
+        srcSet={`/showcase/cards/480/${app.img}.webp 480w, /showcase/cards/${app.img}.webp 604w`}
         sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
         alt={`${app.category} app built with MobAppCreator`}
         width={604}
