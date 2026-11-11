@@ -2,6 +2,9 @@
 // Only apps with a confirmed store listing are included. Descriptions are editorial summaries, not customer quotes.
 // Images live in public/showcase/<slug>.webp (1000×786).
 
+/** Only what a card shows: no app names are sent to the browser. */
+export type ShowcaseCardData = { slug: string; category: string; ios: boolean; android: boolean };
+
 export type ShowcaseApp = {
   slug: string;
   name: string;

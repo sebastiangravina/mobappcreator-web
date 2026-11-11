@@ -1,25 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { ShowcaseApp } from "@/lib/showcase";
-import { Icon } from "./Icon";
+import type { ShowcaseCardData } from "@/lib/showcase";
 import { ShowcaseCard } from "./ShowcaseCard";
 
 const PAGE = 24;
 
-export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; categories: string[] }) {
+export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseCardData[]; categories: string[] }) {
   const [cat, setCat] = useState<string>("All");
-  const [q, setQ] = useState("");
   const [shown, setShown] = useState(PAGE);
 
-  const filtered = useMemo(() => {
-    const term = q.trim().toLowerCase();
-    return apps.filter(
-      (a) =>
-        (cat === "All" || a.category === cat) &&
-        (!term || a.name.toLowerCase().includes(term) || a.category.toLowerCase().includes(term)),
-    );
-  }, [apps, cat, q]);
+  const filtered = useMemo(() => apps.filter((a) => cat === "All" || a.category === cat), [apps, cat]);
 
   const visible = filtered.slice(0, shown);
 
@@ -50,26 +41,11 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
             </button>
           ))}
         </div>
-        <label className="flex h-10 w-full items-center gap-2 rounded-full bg-bg-alt px-4 ring-1 ring-line focus-within:ring-2 focus-within:ring-sky lg:w-64">
-          <Icon name="search" size={17} className="shrink-0 text-fg-3" />
-          <span className="sr-only">Search apps</span>
-          <input
-            type="search"
-            value={q}
-            onChange={(e) => {
-              setQ(e.target.value);
-              setShown(PAGE);
-            }}
-            placeholder="Search apps"
-            className="h-full w-full bg-transparent text-[15px] text-fg outline-none placeholder:text-fg-3"
-          />
-        </label>
       </div>
 
       <p role="status" className="sr-only">
         {filtered.length} {filtered.length === 1 ? "app" : "apps"}
         {cat !== "All" ? ` in ${cat}` : ""}
-        {q.trim() ? ` matching “${q.trim()}”` : ""}
       </p>
 
       <h2 className="sr-only">Apps</h2>
@@ -81,7 +57,7 @@ export function ShowcaseGallery({ apps, categories }: { apps: ShowcaseApp[]; cat
         </div>
       ) : (
         <p className="mt-10 rounded-[20px] bg-bg-alt p-8 text-center text-[16px] text-fg-2">
-          No apps match your search. Try another name or choose All.
+          No apps in this category yet. Choose All to see every app.
         </p>
       )}
 

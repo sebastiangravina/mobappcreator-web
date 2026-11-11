@@ -13,28 +13,10 @@ export const metadata: Metadata = pageMeta({
   path: "/showcase/",
 });
 
-const itemList = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Apps made with MobAppCreator",
-  numberOfItems: showcaseApps.length,
-  itemListElement: showcaseApps.map((a, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    item: {
-      "@type": "MobileApplication",
-      name: a.name,
-      applicationCategory: a.category,
-      description: a.description,
-      operatingSystem: [a.ios && "iOS", a.android && "Android"].filter(Boolean).join(", "),
-    },
-  })),
-};
-
 export default function ShowcasePage() {
   return (
     <>
-      <JsonLd data={[itemList, breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Showcase", path: "/showcase/" }])]} />
+      <JsonLd data={[breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Showcase", path: "/showcase/" }])]} />
       <PageHero
         eyebrow="Showcase"
         title="Made with MobAppCreator."
@@ -42,7 +24,10 @@ export default function ShowcasePage() {
       />
       <section className="pb-24">
         <Container className="max-w-[1200px]">
-          <ShowcaseGallery apps={showcaseApps} categories={showcaseCategories} />
+          <ShowcaseGallery
+            apps={showcaseApps.map(({ slug, category, ios, android }) => ({ slug, category, ios, android }))}
+            categories={showcaseCategories}
+          />
         </Container>
       </section>
       <CtaSection title="Your app could be next." />
